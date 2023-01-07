@@ -4,8 +4,12 @@ import './App.css';
 import SetTimers from './components/setTimers';
 import Timer from './components/timer';
 import Controls from './components/controls';
+import { useSelector } from 'react-redux';
+import { selectTimers } from './features/setTimersSlice';
 
 function App() {
+  const timers = useSelector(selectTimers);
+
   return (
     <div className="App">
       <div className="container d-flex align-items-center vh-100">
@@ -14,12 +18,13 @@ function App() {
             <h1 className="display-1">Work Timer</h1>
           </div>
           <div className="row">
-            <div className="col">
-              <SetTimers name={"Break"}/>
-            </div>
-            <div className="col">
-              <SetTimers name={"Session"}/>
-            </div>
+            {timers.map(timer => {
+              return (
+                <div className="col" key={timer.index}>
+                  <SetTimers name={timer.name} index={timer.index} time={timer.time} />
+                </div>
+              )
+            })}
           </div>
           <div className="row">
             <Timer />
