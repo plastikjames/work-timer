@@ -18,3 +18,12 @@ code {
   background: transparent;
   border: transparent;
 }
+
+button {
+  transition: 0.3s ease-in-out all;
+}
+
+button:hover {
+  color: var(--red-dark);
+  transform: translateY(-2px);
+}

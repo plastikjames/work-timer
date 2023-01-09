@@ -18,10 +18,10 @@ function App() {
             <h1 className="display-1">Work Timer</h1>
           </div>
           <div className="row">
-            {timers.map(timer => {
+            {timers.map((timer, index) => {
               return (
-                <div className="col" key={timer.index}>
-                  <SetTimers name={timer.name} index={timer.index} time={timer.time} />
+                <div className="col" key={index}>
+                  <SetTimers index={timer.index} />
                 </div>
               )
             })}
