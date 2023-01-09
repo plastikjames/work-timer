@@ -6,9 +6,12 @@ export default function Timer() {
 
     const formatTime = (time) => {
         let secs = Math.floor(time % 60);
-        const mins = Math.floor(time / 60);
+        let mins = Math.floor(time / 60);
         if (secs < 10) {
             secs = "0" + secs;
+        };
+        if (mins < 10) {
+            mins = "0" + mins;
         }
         return `${mins}:${secs}`;
     }

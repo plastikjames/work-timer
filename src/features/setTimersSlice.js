@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     timers: [{ name: "break", time: 5, index: 0 }, { name: "session", time: 25, index: 1 }],
-    timer: { time: 0, remaining_minutes: 25, seconds: 0, started: false, timeLeft: 1500, timerIndex: 1, intervalID: null }
+    timer: { started: false, timeLeft: 1500, timerIndex: 1, intervalID: null }
 };
 
 export const setTimersSlice = createSlice({
@@ -38,6 +38,7 @@ export const setTimersSlice = createSlice({
         },
         resetTime: (state, action) => {
             state.timer.timeLeft = 1500;
+            state.timer.timerIndex = 1;
             state.timers[0].time = 5; 
             state.timers[1].time = 25; 
         },
